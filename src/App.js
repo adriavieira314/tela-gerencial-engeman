@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./assets/App.css";
+import './assets/index.css';
+import EngemanGerencial from "./components/Engeman";
+import SearchBar from "./components/SearchBar";
+import Dados from './assets/info-json';
+
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state={
+      search: ''
+    };
+  }
+
+  searchSpace(texto) {
+    this.setState({search: texto})
+  }
+
+  render() {
+    return (
+      <main>
+        <SearchBar searchInput={this.searchSpace.bind(this)} />
+        <EngemanGerencial dados={Dados} searchWord={this.state.search} />
+      </main>
+    );
+  }
 }
 
 export default App;

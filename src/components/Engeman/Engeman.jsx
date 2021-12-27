@@ -1,6 +1,8 @@
 import { Component } from "react";
 import { Table } from 'react-bootstrap';
 
+import Dados from '../../assets/info-json';
+
 class EngemanGerencial extends Component {
     render() {
         return (
@@ -18,8 +20,8 @@ class EngemanGerencial extends Component {
                 </thead>
                 <tbody>
                     {
-                        this.props.dados.filter((data)=>{
-                            if(this.props.searchWord == '')
+                        Dados.filter((data)=>{
+                            if(this.props.searchWord === '')
                                 return data
                             else if(
                                 data.os.toLowerCase().includes(this.props.searchWord.toLowerCase()) || 

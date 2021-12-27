@@ -5,7 +5,7 @@ const Dados = [
       "dataFim": '21/12/2021 as 20:32',
       "totalHoras": '09:00',
       "funcionarios": 'Adria',
-      "maquina": '65',
+      "matricula": '7997',
       "descricao": 'Construção layout inicial do engeman gerencial',
    },
    {
@@ -14,7 +14,7 @@ const Dados = [
       "dataFim": '22/12/2021 as 20:32',
       "totalHoras": '09:00',
       "funcionarios": 'Levy',
-      "maquina": '65',
+      "matricula": '8181',
       "descricao": 'Construção layout inicial do engeman gerencial',
    },
 ]

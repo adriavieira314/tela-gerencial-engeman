@@ -14,7 +14,7 @@ class EngemanGerencial extends Component {
                         <th>Hora Finalizada</th>
                         <th>Total de Horas</th>
                         <th>Funcionários</th>
-                        <th>Máquina</th>
+                        <th>Matricula</th>
                         <th>Descrição</th>
                     </tr>
                 </thead>
@@ -26,7 +26,7 @@ class EngemanGerencial extends Component {
                             else if(
                                 data.os.toLowerCase().includes(this.props.searchWord.toLowerCase()) || 
                                 data.funcionarios.toLowerCase().includes(this.props.searchWord.toLowerCase()) || 
-                                data.dataInicio.toLowerCase().includes(this.props.searchWord.toLowerCase())
+                                data.matricula.toLowerCase().includes(this.props.searchWord.toLowerCase())
                             ){
                                 return data
                             }
@@ -37,7 +37,7 @@ class EngemanGerencial extends Component {
                                 <td>{item.dataFim}</td>
                                 <td>{item.totalHoras}</td>
                                 <td>{item.funcionarios}</td>
-                                <td>{item.maquina}</td>
+                                <td>{item.matricula}</td>
                                 <td>{item.descricao}</td>
                             </tr>
                         ))

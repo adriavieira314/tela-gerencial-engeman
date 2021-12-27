@@ -37,7 +37,7 @@ class SearchBar extends Component {
                   <Col>
                   <Form.Control 
                      type="text" 
-                     placeholder="Filtrar por OS, Funcionário, Data" 
+                     placeholder="Filtrar por OS, Nome, Matrícula" 
                      className="form-cadastro_input"
                      onChange={this.searchSpace.bind(this)} 
                   />

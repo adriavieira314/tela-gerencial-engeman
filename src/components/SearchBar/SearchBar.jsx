@@ -1,8 +1,13 @@
 import { Component } from 'react';
 import { Form, Row, Col } from 'react-bootstrap';
+import DatePicker from "react-datepicker";
+import { registerLocale } from "react-datepicker";
+import pt from 'date-fns/locale/pt';
 
 import './style.css';
 import EngemanGerencial from "../Engeman";
+
+registerLocale('pt', pt);
 
 class SearchBar extends Component {
    // constructor(props) {
@@ -20,7 +25,8 @@ class SearchBar extends Component {
       super();
   
       this.state = {
-        search: ''
+        search: '',
+        startDate: new Date(),
       };
    }
   
@@ -28,27 +34,43 @@ class SearchBar extends Component {
       event.stopPropagation();
       this.setState({search: event.target.value})
    }
+   
+   setandoData(data) {
+      this.setState({startDate: data})
+   }
 
    render() {
       return (
-         <>
-            <Form className="search-input">
-               <Row>
-                  <Col>
-                  <Form.Control 
-                     type="text" 
-                     placeholder="Filtrar por OS, Nome, Matrícula" 
-                     className="form-cadastro_input"
-                     onChange={this.searchSpace.bind(this)} 
+         <section className='main-section'>
+            <div className='div-filter'>
+               <div className="search-input">
+                  <Form>
+                     <Row>
+                        <Col>
+                           <Form.Control 
+                              type="text" 
+                              placeholder="Filtrar por OS, Nome, Matrícula" 
+                              className="form-cadastro_input"
+                              onChange={this.searchSpace.bind(this)} 
+                           />
+                        </Col>
+                        <Col></Col>
+                        <Col></Col>
+                        <Col></Col>
+                     </Row>
+                  </Form>
+               </div>
+               <div>
+                  <DatePicker
+                     locale='pt'
+                     dateFormat={'dd/MM/yyyy'}
+                     selected={this.state.startDate} 
+                     onChange={(date) => this.setandoData(date)}
                   />
-                  </Col>
-                  <Col></Col>
-                  <Col></Col>
-                  <Col></Col>
-               </Row>
-            </Form>
+               </div>
+            </div>
             <EngemanGerencial searchWord={this.state.search} />
-         </>
+         </section>
       );
    }
     

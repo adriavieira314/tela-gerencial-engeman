@@ -21,10 +21,11 @@ class EngemanGerencial extends Component {
                 <tbody>
                     {
                         Dados.filter((data)=>{
-                            if(this.props.searchWord === '')
+                            if(this.props.searchWord === '' && this.props.dataFormatada === '')
                                 return data
                             else if(
-                                data.os.toLowerCase().includes(this.props.searchWord.toLowerCase()) || 
+                                data.dataInicio === this.props.dataFormatada ||
+                                data.os.toLowerCase().includes(this.props.searchWord.toLowerCase()) ||
                                 data.funcionarios.toLowerCase().includes(this.props.searchWord.toLowerCase()) || 
                                 data.matricula.toLowerCase().includes(this.props.searchWord.toLowerCase())
                             ){
@@ -33,8 +34,8 @@ class EngemanGerencial extends Component {
                         }).map((item, index) => (
                             <tr key={index}>
                                 <td>{item.os}</td>
-                                <td>{item.dataInicio}</td>
-                                <td>{item.dataFim}</td>
+                                <td>{item.dataInicio} ás {item.horaInicio}</td>
+                                <td>{item.dataFim} ás {item.horaFim}</td>
                                 <td>{item.totalHoras}</td>
                                 <td>{item.funcionarios}</td>
                                 <td>{item.matricula}</td>

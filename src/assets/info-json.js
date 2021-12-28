@@ -1,8 +1,10 @@
 const Dados = [
    {
       "os": '1234',
-      "dataInicio": '21/12/2021 as 20:32',
-      "dataFim": '21/12/2021 as 20:32',
+      "dataInicio": '21/12/2021',
+      "horaInicio": '20:32',
+      "dataFim": '21/12/2021',
+      "horaFim": '20:32',
       "totalHoras": '09:00',
       "funcionarios": 'Adria',
       "matricula": '7997',
@@ -10,8 +12,10 @@ const Dados = [
    },
    {
       "os": '5678',
-      "dataInicio": '22/12/2021 as 20:32',
-      "dataFim": '22/12/2021 as 20:32',
+      "dataInicio": '22/12/2021',
+      "horaInicio": '20:32',
+      "dataFim": '22/12/2021',
+      "horaFim": '20:32',
       "totalHoras": '09:00',
       "funcionarios": 'Levy',
       "matricula": '8181',

@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Form, Row, Col } from 'react-bootstrap';
+import { Form, Row, Col, Container } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import { registerLocale } from "react-datepicker";
 import pt from 'date-fns/locale/pt';
@@ -23,7 +23,8 @@ class SearchBar extends Component {
 
    constructor() {
       super();
-  
+      this.dataFormatada = '';
+
       this.state = {
         search: '',
         startDate: new Date(),
@@ -36,40 +37,48 @@ class SearchBar extends Component {
    }
    
    setandoData(data) {
+      var dia = data.getDate().toString();
+      var mes = (data.getMonth()+1).toString();
+      var ano = data.getFullYear();
+      this.dataFormatada = dia + '/' + mes + '/' + ano;
+      console.log(typeof this.dataFormatada);
       this.setState({startDate: data})
    }
 
    render() {
       return (
          <section className='main-section'>
-            <div className='div-filter'>
-               <div className="search-input">
-                  <Form>
-                     <Row>
-                        <Col>
-                           <Form.Control 
-                              type="text" 
-                              placeholder="Filtrar por OS, Nome, Matrícula" 
-                              className="form-cadastro_input"
-                              onChange={this.searchSpace.bind(this)} 
-                           />
-                        </Col>
-                        <Col></Col>
-                        <Col></Col>
-                        <Col></Col>
-                     </Row>
-                  </Form>
-               </div>
-               <div>
-                  <DatePicker
-                     locale='pt'
-                     dateFormat={'dd/MM/yyyy'}
-                     selected={this.state.startDate} 
-                     onChange={(date) => this.setandoData(date)}
-                  />
-               </div>
-            </div>
-            <EngemanGerencial searchWord={this.state.search} />
+            <Container className="filtro_input">
+               <Row>
+                  <Col xs={9}>
+                     <Form className='search-input'>
+                        <Row>
+                           <Col>
+                              <Form.Control 
+                                 type="text" 
+                                 placeholder="Filtrar por OS, Nome, Matrícula" 
+                                 onChange={this.searchSpace.bind(this)} 
+                              />
+                           </Col>
+                           <Col></Col>
+                           <Col></Col>
+                           <Col></Col>
+                        </Row>
+                     </Form>
+                  </Col>
+                  <Col>
+                     <DatePicker
+                        className='date-picker'
+                        locale='pt'
+                        dateFormat={'dd/MM/yyyy'}
+                        selected={this.state.startDate} 
+                        onChange={(date) => this.setandoData(date)}
+                     />
+                  </Col>
+               </Row>
+            </Container>
+            
+            <EngemanGerencial searchWord={this.state.search} dataFormatada={this.dataFormatada} />
          </section>
       );
    }

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tela-gerencial-engeman/static/css/main.6331c9c0.css",
+    "main.js": "/tela-gerencial-engeman/static/js/main.8ba436f8.js",
+    "index.html": "/tela-gerencial-engeman/index.html",
+    "main.6331c9c0.css.map": "/tela-gerencial-engeman/static/css/main.6331c9c0.css.map",
+    "main.8ba436f8.js.map": "/tela-gerencial-engeman/static/js/main.8ba436f8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6331c9c0.css",
+    "static/js/main.8ba436f8.js"
+  ]
+}
